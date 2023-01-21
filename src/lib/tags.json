@@ -1,0 +1,30 @@
+[
+    {
+        "name": "AS-Level",
+        "color": "#FFA000"
+    },
+    {
+        "name": "A-Level",
+        "color": "#FF0000"
+    },
+    {
+        "name": "GCSE",
+        "color": "#00FF00"
+    },
+    {
+        "name": "KS3",
+        "color": "#0000FF"
+    },
+    {
+        "name": "KS2",
+        "color": "#FF00FF"
+    },
+    {
+        "name": "KS1",
+        "color": "#00FFFF"
+    },
+    {
+        "name": "EYFS",
+        "color": "#FFFF00"
+    }
+]
