@@ -3,6 +3,7 @@
 </svelte:head>
 <script>
     import katex from 'katex';
+    import snarkdown from "snarkdown";
     import { onMount } from "svelte";
 
     export let string = "";
@@ -28,5 +29,5 @@
 </script>
 
 <div>
-    {@html string}
+    {@html snarkdown(string)}
 </div>

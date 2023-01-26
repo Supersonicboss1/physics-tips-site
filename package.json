@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"katex": "^0.16.4"
+		"katex": "^0.16.4",
+		"snarkdown": "^2.0.0"
 	}
 }
