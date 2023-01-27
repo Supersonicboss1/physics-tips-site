@@ -12,6 +12,7 @@
   <nav class="flex items-center h-16 bg-gray-800">
     <a class=" pr-6 p-5 hover:bg-gray-900" href="/">Home</a>
     <a class=" pr-6 p-5 hover:bg-gray-900" href="/tips">Tips</a>
+    <a class=" pr-6 p-5 hover:bg-gray-900" href="/links">Links</a>
   </nav>
 
   <slot />

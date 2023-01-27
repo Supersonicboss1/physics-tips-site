@@ -12,19 +12,15 @@
         "color": "#00FF00"
     },
     {
-        "name": "KS3",
+        "name": "Past Paper",
         "color": "#0000FF"
     },
     {
-        "name": "KS2",
+        "name": "Specification",
         "color": "#FF00FF"
     },
     {
-        "name": "KS1",
+        "name": "Notes",
         "color": "#00FFFF"
-    },
-    {
-        "name": "EYFS",
-        "color": "#FFFF00"
     }
 ]

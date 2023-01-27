@@ -1,11 +1,11 @@
 <script lang="ts">
     import { beforeUpdate } from "svelte";
-    import tags from "./tags.json";
     export let tag: string
+    import tags from "$lib/tags.json";
     let tagColor: string = "white"
     // on first load, set the tag color by matching the tags in the json file
     beforeUpdate(() => {
-        tags.forEach((t) => {
+        tags.forEach((t: any) => {
             if (t.name === tag) {
                 tagColor = t.color
             }
