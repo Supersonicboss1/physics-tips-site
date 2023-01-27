@@ -11,7 +11,7 @@
     let iterableData: any = data;
     beforeUpdate(() => {
         if (hasLoaded) {
-            iterableData = iterableData
+            iterableData = iterableData;
             return;
         }
         iterableData = data;
@@ -46,19 +46,23 @@
 </script>
 
 <div>
-    <button class={`rounded-md bg-gray-800 m-5 p-2 mb-1 ${showFilter ? 'ring-cyan-500 ring-2 drop-shadow-xl' : ''}`} on:click={() => {showFilter = !showFilter}}>
-        <b> Filter by Tag<b/>
-    </button>
-
+    <button
+        class={`rounded-md bg-gray-800 m-5 p-2 mb-1 ${
+            showFilter ? "ring-cyan-500 ring-2 drop-shadow-xl" : ""
+        }`}
+        on:click={() => {
+            showFilter = !showFilter;
+        }}>
+        <b> Filter by Tag<b /> </b></button>
 </div>
 {#if iterableData.length > 0}
     {#each iterableData as tip}
         <div class="p-5 m-7 bg-gray-800 block">
             <h2 class="text-3xl">
                 {#key iterableData}
-                <MathParser string={tip.tip} />
-            {/key}
-        </h2>
+                    <MathParser string={tip.tip} />
+                {/key}
+            </h2>
             {#each tip.tags as tag}
                 <Tag {tag} />
             {/each}
@@ -70,18 +74,18 @@
     </div>
 {/if}
 {#if showFilter}
-<div class="bg-gray-800 max-w-max mx-4 rounded-md" transition:slide>
-{#each tags as tag}
-    <div class="block">
-        <Tag tag={tag.name}>
-            <input
-                type="checkbox"
-                class="mx-2 accent-lime-500"
-                bind:group={filteredTags}
-                value={tag.name}
-                on:change={() => (changeIterableData())} />
-        </Tag>
+    <div class="bg-gray-800 max-w-max mx-4 rounded-md" transition:slide>
+        {#each tags as tag}
+            <div class="block">
+                <Tag tag={tag.name}>
+                    <input
+                        type="checkbox"
+                        class="mx-2 accent-lime-500"
+                        bind:group={filteredTags}
+                        value={tag.name}
+                        on:change={() => changeIterableData()} />
+                </Tag>
+            </div>
+        {/each}
     </div>
-{/each}
-</div>
 {/if}

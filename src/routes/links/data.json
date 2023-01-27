@@ -2,15 +2,20 @@
     {
         "title": "Waves Revision",
         "author": "SaveMyExams",
-        "tags": ["GCSE", "Notes"],
+        "tags": [
+            "GCSE",
+            "Notes"
+        ],
         "link": "https://www.savemyexams.co.uk/gcse/physics/aqa/18/revision-notes/6-waves/6-1-waves-in-air-fluids--solids/6-1-1-transverse--longitudinal-waves/"
-
     },
     {
         "title": "Physics A-Level Specification",
         "author": "AQA",
-        "tags": ["AS-Level", "A-Level", "Specification"],
+        "tags": [
+            "AS-Level",
+            "A-Level",
+            "Specification"
+        ],
         "link": "https://filestore.aqa.org.uk/resources/physics/specifications/AQA-7407-7408-SP-2015.PDF"
-
     }
 ]
