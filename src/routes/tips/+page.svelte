@@ -55,6 +55,24 @@
         }}>
         <b> Filter by Tag<b /> </b></button>
 </div>
+{#if showFilter}
+    <div class="bg-gray-800 max-w-max mx-4 rounded-md " transition:slide>
+        {#each tags as tag}
+            <div class="flex flex-wrap">
+                <Tag tag={tag.name}>
+                    <input
+                        type="checkbox"
+                        class="mx-2 accent-lime-500"
+                        bind:group={filteredTags}
+                        value={tag.name}
+                        on:change={() => changeIterableData()} />
+                </Tag>
+            </div>
+        {/each}
+    </div>
+{/if}
+
+<div class="md:flex">
 {#if iterableData.length > 0}
     {#each iterableData as tip}
         <div class="p-5 m-7 bg-gray-800 block">
@@ -73,19 +91,5 @@
         <h2 class="text-3xl">No results!</h2>
     </div>
 {/if}
-{#if showFilter}
-    <div class="bg-gray-800 max-w-max mx-4 rounded-md" transition:slide>
-        {#each tags as tag}
-            <div class="block">
-                <Tag tag={tag.name}>
-                    <input
-                        type="checkbox"
-                        class="mx-2 accent-lime-500"
-                        bind:group={filteredTags}
-                        value={tag.name}
-                        on:change={() => changeIterableData()} />
-                </Tag>
-            </div>
-        {/each}
-    </div>
-{/if}
+
+</div>

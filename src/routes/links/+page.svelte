@@ -70,27 +70,28 @@
         </div>
     {/if}
 </div>
+<div class="md:flex">
 {#if iterableData.length > 0}
     {#each iterableData as link}
-        <div class="p-5 m-7 bg-gray-800 block flex-wrap">
-            <h2 class="text-3xl">
+        <div class="p-5 m-7 bg-gray-800 flex-wrap hover:border-gray-600 max-w-fit">
+
+            <h2 class="text-3xl flex">
+                <a href={link.link} target="_blank" rel="noreferrer" class="hover:bg-gray-900 rounded-3xl p-2 transition-all hover:translate-y-[-0.25rem] hover:shadow-2xl hover:shadow-blue-800">
                 {link.title}
-            </h2>
-            <h3 class="text-xl text-gray-400 ">
-                {link.author}
-            </h3>
-            <button class="rounded-md bg-gray-900 p-2 mt-6 float-right">
-                <a href={link.link} target="_blank" rel="noreferrer">
+
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="1em"
-                        height="1em"
+                        class="w-6 h-6 inline"
                         viewBox="0 0 24 24"
                         ><path
                             fill="currentColor"
                             d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm11-3v8h-2V6.413l-7.793 7.794l-1.414-1.414L17.585 5H13V3h8z" /></svg>
-                </a>
-            </button>
+                        </a>
+            </h2>
+
+            <h3 class="text-xl text-gray-400 m-3 my-1">
+                {link.author}
+            </h3>
             <div class="">
                 {#each link.tags as tag}
                     <Tag {tag} />
@@ -103,3 +104,4 @@
         <h2 class="text-3xl">No results!</h2>
     </div>
 {/if}
+</div>
