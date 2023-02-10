@@ -53,7 +53,7 @@
         on:click={() => {
             showFilter = !showFilter;
         }}>
-        <b> Filter by Tag<b /> </b></button>
+        Filter by Tag </button>
 </div>
 {#if showFilter}
     <div class="bg-gray-800 max-w-max mx-4 rounded-md " transition:slide>
@@ -75,7 +75,8 @@
 <div class="md:flex">
 {#if iterableData.length > 0}
     {#each iterableData as tip}
-        <div class="p-5 m-7 bg-gray-800 block">
+        <div
+        class="p-5 m-7 bg-gray-800 block">
             <h2 class="text-3xl">
                 {#key iterableData}
                     <MathParser string={tip.tip} />

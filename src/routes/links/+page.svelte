@@ -57,7 +57,7 @@
         on:click={() => {
             showFilter = !showFilter;
         }}>
-        <b> Filter by Tag<b /> </b></button>
+        Filter by Tag</button>
     {#if showFilter}
         <div class="bg-gray-800 max-w-max mx-4 rounded-md" transition:slide>
             {#each tags as tag}
