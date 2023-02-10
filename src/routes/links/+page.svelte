@@ -1,15 +1,21 @@
 <script lang="ts">
+  import SearchBar from './SearchBar.svelte';
+
     import search from "$lib/search";
     import Tag from "$lib/tag.svelte";
     import tags from "$lib/tags.json";
     import { beforeUpdate } from "svelte";
-    import { draw, slide } from "svelte/transition";
+    import { slide } from "svelte/transition";
     import data from "./data.json";
     let showFilter = false;
     let hasLoaded: boolean = false;
     let filteredTags: any = [];
     let iterableData: any = data;
     let searchQuery: string = "";
+    function handleSearch(event: any) {
+        searchQuery = event.detail.text;
+        changeIterableData();
+    }
     beforeUpdate(() => {
         if (hasLoaded) {
             iterableData = iterableData;
@@ -20,7 +26,6 @@
     });
     function changeIterableData() {
         //function to filter iterable data and remove tips that don't have the selected tags
-        console.log("change");
         let newData: any = [];
         data.forEach((tip) => {
             let hasAllTags = true;
@@ -75,37 +80,8 @@
         </div>
     {/if}
 </div>
-<div class="inline-flex">
-    <form>
-        <div class="relative mx-5 my-1">
-            <div
-                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                    aria-hidden="true"
-                    class="w-5 h-5 text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    ><path
-                        in:draw
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-            </div>
-            <input
-                bind:value={searchQuery}
-                on:keyup={() => changeIterableData()}
-                type="search"
-                id="default-search"
-                class="block w-full p-4 pl-10 text-sm border rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-700 border-gray-600 placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search"
-                required />
-        </div>
-    </form>
+<SearchBar on:search={handleSearch}/>
     <!-- <input type="text" bind:value={searchQuery} on:keyup={() => changeIterableData()}> -->
-</div>
 <div class="md:flex">
     {#if iterableData.length > 0}
         {#each iterableData as link}
