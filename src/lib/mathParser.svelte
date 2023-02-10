@@ -7,10 +7,8 @@
     onMount(() => {
         //split string into normal text and math text with delimiter $$ and render math text with katex
         let splitString = string.split("$$");
-        console.log(splitString);
         //remove empty strings
         splitString = splitString.filter((x) => x !== "");
-        console.log(splitString);
         //render math text with katex then merge with normal text and replace string with the result
         let result = "";
         splitString.forEach((x, i) => {

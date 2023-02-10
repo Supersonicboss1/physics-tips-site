@@ -12,6 +12,5 @@ export default function search(data: Data, query: string) {
                 break;
             }
     }
-    console.log(results);
     return results;
 }
