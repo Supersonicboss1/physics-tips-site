@@ -1,7 +1,7 @@
 <script lang="ts">
-    import MathParser from "$lib/mathParser.svelte";
+    import Card from "$lib/Card.svelte";
     import search from "$lib/search";
-    import SearchBar from '$lib/SearchBar.svelte';
+    import SearchBar from "$lib/SearchBar.svelte";
     import Tag from "$lib/tag.svelte";
     import tags from "$lib/tags.json";
     import { beforeUpdate } from "svelte";
@@ -63,7 +63,8 @@
         on:click={() => {
             showFilter = !showFilter;
         }}>
-        Filter by Tag </button>
+        Filter by Tag
+    </button>
 </div>
 {#if showFilter}
     <div class="bg-gray-800 max-w-max mx-4 rounded-md " transition:slide>
@@ -81,26 +82,15 @@
         {/each}
     </div>
 {/if}
-<SearchBar on:search={handleSearch}/>
+<SearchBar on:search={handleSearch} />
 <div class="md:flex">
-{#if iterableData.length > 0}
-    {#each iterableData as tip}
-        <div
-        class="p-5 m-7 bg-gray-800 block">
-            <h2 class="text-3xl">
-                {#key iterableData}
-                    <MathParser string={tip.title} />
-                {/key}
-            </h2>
-            {#each tip.tags as tag}
-                <Tag {tag} />
-            {/each}
+    {#if iterableData.length > 0}
+        {#each iterableData as tip}
+            <Card data={tip} />
+        {/each}
+    {:else}
+        <div class="p-5 m-7 bg-gray-800 inline-flex">
+            <h2 class="text-3xl">No results!</h2>
         </div>
-    {/each}
-{:else}
-    <div class="p-5 m-7 bg-gray-800 inline-flex">
-        <h2 class="text-3xl">No results!</h2>
-    </div>
-{/if}
-
+    {/if}
 </div>
