@@ -3,14 +3,15 @@
     let searchQuery: string = ""; //search query
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
+    let searchBarFocused: boolean = false;
 </script>
 
-<form>
+<form on:focusin={() => searchBarFocused = true} on:focusout={() => searchBarFocused = false}>
     <div class="relative mx-5 my-1 inline-flex">
-        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none transition-all">
             <svg
                 aria-hidden="true"
-                class="w-5 h-5 text-gray-400"
+                class={` transition-all w-5 h-5 ${searchBarFocused ? 'text-purple-500' : 'text-gray-400'}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -31,6 +32,7 @@
             type="search"
             id="default-search"
             placeholder="Search"
+            class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-700 transition-all text-white focus:outline-none  focus:ring-2 focus:ring-purple-500 focus:border-transparent sm:text-sm"
             required />
     </div>
 </form>
