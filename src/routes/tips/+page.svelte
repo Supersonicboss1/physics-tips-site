@@ -1,14 +1,21 @@
 <script lang="ts">
     import MathParser from "$lib/mathParser.svelte";
+    import search from "$lib/search";
+    import SearchBar from '$lib/SearchBar.svelte';
     import Tag from "$lib/tag.svelte";
     import tags from "$lib/tags.json";
     import { beforeUpdate } from "svelte";
     import { slide } from "svelte/transition";
     import data from "./data.json";
-    let showFilter = false;
+    let showFilter: boolean = false;
     let hasLoaded: boolean = false;
     let filteredTags: any = [];
     let iterableData: any = data;
+    let searchQuery: string = "";
+    function handleSearch(event: any) {
+        searchQuery = event.detail.text;
+        changeIterableData();
+    }
     beforeUpdate(() => {
         if (hasLoaded) {
             iterableData = iterableData;
@@ -17,6 +24,7 @@
         iterableData = data;
         hasLoaded = true;
     });
+
     function changeIterableData() {
         //function to filter iterable data and remove tips that don't have the selected tags
         let newData: any = [];
@@ -33,14 +41,16 @@
         });
         if (filteredTags.length === 0) {
             if (iterableData == data) {
+                iterableData = search(iterableData, searchQuery);
                 return;
             }
-            iterableData = data;
+            iterableData = search(data, searchQuery);
         } else {
             if (iterableData == newData) {
+                iterableData = search(iterableData, searchQuery);
                 return;
             }
-            iterableData = newData;
+            iterableData = search(newData, searchQuery);
         }
     }
 </script>
@@ -71,7 +81,7 @@
         {/each}
     </div>
 {/if}
-
+<SearchBar on:search={handleSearch}/>
 <div class="md:flex">
 {#if iterableData.length > 0}
     {#each iterableData as tip}
@@ -79,7 +89,7 @@
         class="p-5 m-7 bg-gray-800 block">
             <h2 class="text-3xl">
                 {#key iterableData}
-                    <MathParser string={tip.tip} />
+                    <MathParser string={tip.title} />
                 {/key}
             </h2>
             {#each tip.tags as tag}
