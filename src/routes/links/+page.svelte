@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SearchBar from './SearchBar.svelte';
+  import SearchBar from '$lib/SearchBar.svelte';
 
     import search from "$lib/search";
     import Tag from "$lib/tag.svelte";
@@ -86,7 +86,7 @@
     {#if iterableData.length > 0}
         {#each iterableData as link}
             <div
-                class="p-5 m-7 bg-gray-800 flex-wrap hover:border-gray-600 max-w-fit">
+                class="p-5 m-7 bg-gray-800 flex-wrap hover:border-gray-600 max-w-fit rounded-md card">
                 <h2 class="text-3xl flex">
                     <a
                         href={link.link}
@@ -121,3 +121,12 @@
         </div>
     {/if}
 </div>
+<style>
+ .card::before {
+    background: radial-gradient(
+        800px circle at 100px 100px,
+        rgba(255, 255, 255, 0.06),
+        transparent 40%
+    );
+ }
+</style>
