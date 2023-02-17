@@ -96,13 +96,3 @@
         </div>
     {/if}
 </div>
-
-<style>
-    .card::before {
-        background: radial-gradient(
-            800px circle at 100px 100px,
-            rgba(255, 255, 255, 0.06),
-            transparent 40%
-        );
-    }
-</style>
