@@ -6,12 +6,17 @@
     let searchBarFocused: boolean = false;
 </script>
 
-<form on:focusin={() => searchBarFocused = true} on:focusout={() => searchBarFocused = false}>
+<form
+    on:focusin={() => (searchBarFocused = true)}
+    on:focusout={() => (searchBarFocused = false)}>
     <div class="relative mx-5 my-1 inline-flex">
-        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none transition-all">
+        <div
+            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none transition-all">
             <svg
                 aria-hidden="true"
-                class={` transition-all w-5 h-5 ${searchBarFocused ? 'text-indigo-500' : 'text-gray-400'}`}
+                class={` transition-all w-5 h-5 ${
+                    searchBarFocused ? "text-indigo-500" : "text-gray-400"
+                }`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -39,6 +44,6 @@
 
 <style lang="postcss">
     input {
-        @apply block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white
+        @apply block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white;
     }
 </style>
