@@ -57,8 +57,8 @@
 
 <div>
     <button
-        class={`rounded-md bg-gray-800 m-5 p-2 mb-1 ${
-            showFilter ? "ring-cyan-500 ring-2 drop-shadow-xl" : ""
+        class={`rounded-md bg-gray-800 m-5 p-2 mb-1 hover:bg-indigo-900 transition-all ${
+            showFilter ? "ring-indigo-700 ring-2 drop-shadow-xl" : ""
         }`}
         on:click={() => {
             showFilter = !showFilter;

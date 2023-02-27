@@ -30,7 +30,7 @@
                 href={data.link}
                 target="_blank"
                 rel="noreferrer"
-                class="hover:bg-gray-900 rounded-3xl p-2 transition-all hover:translate-y-[-0.25rem] hover:shadow-2xl hover:shadow-blue-800">
+                class="hover:bg-indigo-900 rounded-xl p-2 transition-all hover:shadow-2xl ">
                 {data.title}
 
                 <svg
