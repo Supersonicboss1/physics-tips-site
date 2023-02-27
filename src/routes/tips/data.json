@@ -6,5 +6,10 @@
             "AS-Level",
             "GCSE"
         ]
+    },
+    {
+        "title": "Tip with no tag",
+        "tags": [
+        ]
     }
 ]
