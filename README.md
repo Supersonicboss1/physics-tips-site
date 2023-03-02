@@ -9,4 +9,4 @@
 - [ ] While the tags system *works,* it is too generic of a solution. Re-engineer the system to have things such as subject or category not parts of the tags system to allow better filtering and separation of data.
 - [ ] For tips with no subject/tag, always show unless checkbox ticked/unticked
 - [ ] The two pages are way too similar, there must be a way to abstract that.
-- [ ] The name is getting a bit unwieldy, maybe change that?
+- [x] ~~The name is getting a bit unwieldy, maybe change that?~~ actually it's kinda funny
